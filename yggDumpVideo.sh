@@ -11,9 +11,9 @@ fetchIndexPage(){
 }
 
 psv2html(){
-  cat $TARGETFILE | ./psv2html.sh >$HTMLFILE
-
- echo '<html><head> <meta charset="UTF-8"> <body>' >$HTMLFILE
+#  cat $TARGETFILE | ./psv2html.sh >$HTMLFILE
+ echo '<html><head> <meta charset="UTF-8">'>$HTMLFILE
+ echo '</head><body>' >>$HTMLFILE
  echo '<ol>' >>$HTMLFILE
  while read line; do
   echo "$line"|awk -F'|' '{print "<li><a target=\"_blank\" href=\"" $2 "\">" $1 "</a></li>"}' >>$HTMLFILE
